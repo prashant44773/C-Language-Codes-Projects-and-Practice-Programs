@@ -1,0 +1,13 @@
+Account Number :	210820
+PASSWORD : 	210820
+Name of the Account Holder  : 	tvs tomar
+Address of the Acccont Holder  : 	65 navlaqkho,bunglow,bapunagar,ahmedabad=380024
+Birth Date :   	Day 	Month	Year 
+				21		  8		2001
+Phone Number  :	
+9737564087
+Citizen Ship Number  : 	210820
+Account Type  :	Savings
+
+Available Balance  :	
+						27500.00

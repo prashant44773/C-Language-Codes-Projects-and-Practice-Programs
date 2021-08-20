@@ -1,0 +1,13 @@
+Account Number :	acc1234
+PASSWORD : 	lonewolf
+Name of the Account Holder  : 	lone beast
+Address of the Acccont Holder  : 	at hells gate
+Birth Date :   	Day 	Month	Year 
+				6		  1		2002
+Phone Number  :	
+4444555522
+Citizen Ship Number  : 	123qwe
+Account Type  :	Savings
+
+Available Balance  :	
+						21750.00

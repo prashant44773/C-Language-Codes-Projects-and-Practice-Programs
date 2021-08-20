@@ -1,0 +1,13 @@
+Account Number :	acc1234
+PASSWORD : 	lonewolf
+Name of the Account Holder  : 	Warrior form Night
+Address of the Acccont Holder  : 	at hells gate
+Birth Date :   	Day 	Month	Year 
+				27		  12		2001
+Phone Number  :	
+4444555522
+Citizen Ship Number  : 	123qwe
+Account Type  :	Savings
+
+Available Balance  :	
+						201650.00

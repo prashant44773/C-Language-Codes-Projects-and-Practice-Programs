@@ -1,0 +1,13 @@
+Account Number :	asd1234
+PASSWORD : 	lionking
+Name of the Account Holder  : 	lone Knight
+Address of the Acccont Holder  : 	as the wind goes in oppsite direction
+Birth Date :   	Day 	Month	Year 
+				23		  5		1986
+Phone Number  :	
+1234567809
+Citizen Ship Number  : 	qwe123
+Account Type  :	Fixed
+
+Available Balance  :	
+						48600.00
