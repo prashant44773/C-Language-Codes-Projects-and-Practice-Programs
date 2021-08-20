@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <string.h>
 
-int main()
-{
+// int main()
+// {
     // int Take ;
     // printf("Enter The Number Of Elements  : \n");
     // scanf("%d", &Take);
@@ -34,28 +34,28 @@ int main()
 
     //.........................................Solvingn USing Without Library  Function..............................//
 
-    char num[100];
+    // char num[100];
 
-    char str[100];
+    // char str[100];
 
-    printf("Enter the  String  : \n");
+    // printf("Enter the  String  : \n");
 
-    scanf("%[^\n]%*c", num);
+    // scanf("%[^\n]%*c", num);
 
-    int Length, count, j = 0, temp;
+    // int Length, count, j = 0, temp;
 
-    Length = strlen(num);
+    // Length = strlen(num);
 
-    count = Length;
+    // count = Length;
 
-    printf("The Value of Count is %d\n", count) ;
+    // printf("The Value of Count is %d\n", count) ;
 
-    printf("The Entered String is  : %s\n", num) ;    
+    // printf("The Entered String is  : %s\n", num) ;    
 
-     for (int j = Length; j >= 0; j--)
-    {
-        printf("%c", num[j]);
-    }
+    //  for (int j = Length; j >= 0; j--)
+    // {
+    //     printf("%c", num[j]);
+    // }
 
     // for (int i = 0; i < count; i++)
     // {
@@ -83,8 +83,8 @@ int main()
 
     // printf("The Reversed String is  :  %s\n", str);
 
-    return 0;
-}
+//     return 0;
+// }
 
 
 
@@ -122,3 +122,34 @@ int main()
 //         printf("%c", num[j]);
 //   return 0 ;    
 // }
+
+
+
+
+
+
+
+
+#include<stdio.h>
+
+int main()
+{
+    int n , arr[1000001];
+    printf("Enter the Number of Integers : \t");
+    scanf("%d",&n);
+
+    for(int i=0 ; i < n ; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+
+    for(int i=0 ; i < n ; i++)
+    {
+        printf("%d", arr[i]);
+    }
+
+    
+
+
+    return 0 ;
+}
