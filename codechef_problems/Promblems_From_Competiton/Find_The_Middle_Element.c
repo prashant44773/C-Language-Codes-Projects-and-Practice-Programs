@@ -30,7 +30,46 @@
 
 int main()
 {
-  int 
+  int t , temp;
 
-      return 0;
+  int arr[5] ;
+  
+  printf("Enter the Number of Testcases : \t");
+  scanf("%d", &t);
+
+  while (t--)
+  {
+
+    for(int r=0 ; r < 5 ; r++)
+    {
+      printf("\nEnter the %d Element :\t",r+1);
+      scanf("%d",&arr[r]);
+    }
+
+
+    for(int i=0 ; i < 5 ; i++)
+    {
+      for(int j=i+1 ; j < 5 ; j++)
+      {
+          if(arr[i] > arr[j])
+          {
+            temp = arr[i];
+
+            arr[i] = arr[j];
+
+            arr[j] = temp;
+          }
+      }
+    }
+
+    printf("The Sorted Array is : \t");
+    // for(int y=0 ; y < 5 ; y++)
+    // {
+    //   printf("%d ",arr[y]);
+    // }
+
+    printf("%d",arr[2]);
+
+  }
+  return 0;
 }
