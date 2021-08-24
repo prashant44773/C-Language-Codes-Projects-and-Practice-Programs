@@ -124,28 +124,63 @@
 
 
 
+// #include<stdio.h>
+
+// int main()
+// {
+//     int n  ,  arr[9] = {10,2,20,4,30,6,40,8,50};
+//     printf("Enter the Number : \t");
+//     scanf("%d",&n);
+
+//     for(int i=0 ; i < 9 ; i++)
+//     {
+//         if(arr[i] == n)
+//         {
+//             printf(" %d",arr[i]);
+//             break;
+//         }
+
+//         printf("%d ",arr[i]);
+
+//     }
+
+
+
+
+//     return 0 ;
+// }
+
 #include<stdio.h>
+
 
 int main()
 {
-    int n  ,  arr[9] = {10,2,20,4,30,6,40,8,50};
+    int n;
     printf("Enter the Number : \t");
     scanf("%d",&n);
 
-    for(int i=0 ; i < 9 ; i++)
+    int num1 = 2 , num2 = 10 , j=0;
+
+    for(j=0 ; j<n/2 ; j++)
     {
-        if(arr[i] == n)
-        {
-            printf(" %d",arr[i]);
-            break;
-        }
+        printf("%d ",num2);
 
-        printf("%d ",arr[i]);
+        printf("%d ",num1);
 
+        num1 = num1 + 2; 
+
+        num2 = num2 + 10; 
     }
 
+    // 10,2,20,4,30,6,40,8,50,
 
 
+    // for(int i=0 ; i < n ; i++);
+    // {
+    //     printf("%d ",num1);
+    //     // printf("%d %d ", );
+    // }
 
-    return 0 ;
+
+    return 0;
 }
