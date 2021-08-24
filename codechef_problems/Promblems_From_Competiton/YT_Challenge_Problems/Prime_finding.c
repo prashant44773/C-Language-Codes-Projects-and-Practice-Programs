@@ -2,11 +2,11 @@
 
 int main()
 {
-    int n, count = 0;
+    int n = 8 , count = 0 , success = 0;
     printf("Enter the Number :\t");
     scanf("%d", &n);
 
-    printf("The Prime Numbers are : \n");
+    printf("\nThe Prime Numbers are : \n");
 
     for (int i = 2; i <= n; i++)
     {
@@ -20,10 +20,15 @@ int main()
 
         if (count == 2)
         {
+            // success++ ;
             printf("%d ", i);
         }
 
+        count = 0;
+
     }
+
+    // printf("The value of success is :\t%d",success);
 
     return 0;
 }
