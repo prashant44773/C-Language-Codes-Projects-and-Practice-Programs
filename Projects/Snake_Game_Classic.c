@@ -78,17 +78,17 @@ void Walls()
         {
             if (i == 0 || j == 0 || i == verticle - 1 || j == horizontal - 1)
             {
-                printf("#");
+                printf("!");
             }
             else
             {
                 if (i == Snake_X && j == Snake_Y)
                 {
-                    printf(">");
+                    printf("D>");
                 }
                 else if (i == Fruit_X && j == Fruit_Y)
                 {
-                    printf("O");
+                    printf("F");
                 }
                 else
                 {
@@ -201,7 +201,7 @@ int main()
         
         for (int r = 0; r < 10000; r++)
         {
-            for (int y = 0; y < 1100; y++)
+            for (int y = 0; y < 2000; y++)
             {
             }
         }
