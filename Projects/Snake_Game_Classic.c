@@ -10,6 +10,10 @@ int horizontal = 60;
 
 int verticle = 35;
 
+int Score = 0;   // It stores the score of Player
+
+static int BestScore = 0;
+
 //.......................................//
 
 // snakes starting position
@@ -34,14 +38,28 @@ int GameOver = 0;
 
 int move = 0;
 
+//........count tails to be Attached as it Eats fruits.........//
+
+int counttail = 0;
+
 //...........................................//
+
+//........Store the Positions of tails which are about to be attached behind the snake.......//
+
+int tailX[100];
+
+int tailY[100];
+
+//......................................................//
+
+//......................................................//
 
 int fruit() //.............Fruit Generation.............//
 {
 
 again1:
 
-    Fruit_X = rand() % 25 + 5;  //% verticle;
+    Fruit_X = rand() % 25 + 5; //% verticle;
 
     if (Fruit_X == 0)
     {
@@ -50,7 +68,7 @@ again1:
 
 again2:
 
-    Fruit_Y = rand() % 45 + 10 ; //% horizontal;
+    Fruit_Y = rand() % 45 + 10; //% horizontal;
 
     if (Fruit_Y == 0)
     {
@@ -78,13 +96,13 @@ void Walls()
         {
             if (i == 0 || j == 0 || i == verticle - 1 || j == horizontal - 1)
             {
-                printf("!");
+                printf("#");
             }
             else
             {
                 if (i == Snake_X && j == Snake_Y)
                 {
-                    printf("D>");
+                    printf("O");
                 }
                 else if (i == Fruit_X && j == Fruit_Y)
                 {
@@ -92,13 +110,37 @@ void Walls()
                 }
                 else
                 {
-                    printf(" ");
+                    int ch = 0;
+
+                    //............Code To Print The Tail of the Snake.............//
+
+                    for(int t=0 ; t < counttail ;t++)
+                    {
+                        if( i == tailX[t]   &&   j == tailY[t] )
+                        {
+                            printf("o");
+                            ch = 1;
+                        }
+                    }
+
+                    if (ch == 0)
+                    {
+                        printf(" ");
+                    }
                 }
             }
         }
 
         printf("\n");
     }
+
+    printf("\nScore = %d\n",Score);
+
+    if(Score > BestScore)
+    {
+        BestScore = Score;
+    }
+
 }
 
 void KEY_Buttons()
@@ -150,6 +192,54 @@ void Hit_Wall() // if snake hits the wall then the game is over
 
 void Movements()
 {
+    //...........Logic To Add Tails In Snake.............//
+
+    int prevX = tailX[0];
+
+    int prevY = tailY[0];
+
+    int Prev2X, Prev2Y;
+
+    tailX[0] = Snake_X;
+
+    tailY[0] = Snake_Y;
+
+    //.......Initiating The Looop........//
+
+    for (int a = 1; a < counttail; a++)
+    {
+        //......................//
+        Prev2X = tailX[a];
+
+        Prev2Y = tailY[a];
+
+        //......................//
+        tailX[a] = prevX;
+
+        tailY[a] = prevY;
+
+        //......................//
+        prevX = Prev2X;
+
+        prevY = Prev2Y;
+    }
+
+    //...................................................//
+
+
+    //...............Coding to End the Game as the Snake touches Itself..................//
+
+    for(int p=1 ; p < counttail ; p++)
+    {
+        if(Snake_X == tailX[p]   &&   Snake_Y == tailY[p])
+        {
+            GameOver = 1;
+        }
+    }
+
+    //...................................................................................//
+
+    //...................................................//
 
     // if (GameOver == 1)
     // {
@@ -180,16 +270,21 @@ void Movements()
     }
     }
 
-    if(Snake_X == Fruit_X  &&   Snake_Y == Fruit_Y)
+    if (Snake_X == Fruit_X && Snake_Y == Fruit_Y)
     {
+        Score++;  // It Counts the Score of the Player
+
+        counttail++; // It counts the Number of Times , The Friut had been Eaten by Snake....and Incraeses its Tail
+        
         fruit();
         fruit();
     }
 }
 
-int main()
-{
 
+void StartGame()
+{
+    
     generate();
     while (GameOver != 1)
     {
@@ -198,14 +293,81 @@ int main()
         KEY_Buttons();
         Hit_Wall();
         Movements();
-        
+
         for (int r = 0; r < 10000; r++)
         {
-            for (int y = 0; y < 2000; y++)
+            for (int y = 0; y < 5000; y++)
             {
+            //     // for ( i = 0; i < 400; i++)
+            //     // {
+
+            //     // }
             }
         }
     }
+
+
+}
+
+
+
+
+
+
+
+int main()
+{
+    system("cls");
+
+
+    int var , retry = 0;
+    
+
+    printf("\n\n\n\n\t\t\t\t\t");
+
+    printf("    Welcome To The Snake Game\n\n\n\n\t\t\t\t\tPress the Key Below Keys To Continue\n\n\n\t\t\t\t\t");
+    
+    printf(" 1. Start \n\n\n\n\t\t\t\t\t Best Score = 10");
+
+    printf("\n\n\t\t\t\t\t Enter Your Choice  :\t");
+    scanf("%d",&var);
+
+    if(var == 1)
+    {
+        StartGame();
+    }
+
+    str :
+
+    if(retry == 1)
+    {
+
+        counttail = 0;
+
+        Score = 0;
+
+        StartGame();
+    }
+
+    system("cls");
+
+    printf("\n\n\n\t\t\t\t\tYour Score is %d",Score);
+
+    printf("\n\n\t\t\t\t\tBest Score is %d",BestScore);
+
+    printf("\n\n\t\t\t\t\tPress 0 To Play Again  \t");
+    scanf("%d",&var);
+
+    if(var == 0)
+    {
+        GameOver = 0;
+        
+        retry = 1;
+
+        goto str;
+    }
+
+   
 
     // for (int i = 0; i < 500; i++)
     // {
@@ -220,16 +382,13 @@ int main()
 
     //..............................................................
 
-        // if (Snake_X == Fruit_X && Snake_Y == Fruit_Y)
-        // {
-        //     fruit();
-        //     fruit();
-        // }
+    // if (Snake_X == Fruit_X && Snake_Y == Fruit_Y)
+    // {
+    //     fruit();
+    //     fruit();
+    // }
 
-        //..............................................................
-
-
-
+    //..............................................................
 
     return 0;
 }
