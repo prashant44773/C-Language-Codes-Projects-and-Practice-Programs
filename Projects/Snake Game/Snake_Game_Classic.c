@@ -10,9 +10,11 @@ int horizontal = 60;
 
 int verticle = 35;
 
-int Score = 0;   // It stores the score of Player
+int Score = 0; // It stores the score of Player
 
-static int BestScore = 0;
+// int checkScore;
+
+static int BestScore;
 
 //.......................................//
 
@@ -49,6 +51,38 @@ int counttail = 0;
 int tailX[100];
 
 int tailY[100];
+
+//......................................................//
+
+//......................................................//
+
+//...........Functions To Store  Best Scores of Game...........//
+
+void Update_Score()
+{
+    FILE *str;
+
+    str = fopen("Snake_Score_Stores.txt", "w+");
+
+    fprintf(str, "%d", BestScore);
+
+    fclose(str);
+}
+
+void Check_Score()
+{
+    FILE *ptr;
+
+    ptr = fopen("Snake_Score_Stores.txt", "r");
+
+    while (fscanf(ptr, "%d", &BestScore) != EOF)
+    {
+    }
+
+    fclose(ptr);
+}
+
+//............................................................//
 
 //......................................................//
 
@@ -114,9 +148,9 @@ void Walls()
 
                     //............Code To Print The Tail of the Snake.............//
 
-                    for(int t=0 ; t < counttail ;t++)
+                    for (int t = 0; t < counttail; t++)
                     {
-                        if( i == tailX[t]   &&   j == tailY[t] )
+                        if (i == tailX[t] && j == tailY[t])
                         {
                             printf("o");
                             ch = 1;
@@ -134,13 +168,12 @@ void Walls()
         printf("\n");
     }
 
-    printf("\nScore = %d\n",Score);
+    printf("\nScore = %d\n", Score);
 
-    if(Score > BestScore)
-    {
-        BestScore = Score;
-    }
-
+    // if(Score > BestScore)
+    // {
+    //     BestScore = Score;
+    // }
 }
 
 void KEY_Buttons()
@@ -226,12 +259,11 @@ void Movements()
 
     //...................................................//
 
-
     //...............Coding to End the Game as the Snake touches Itself..................//
 
-    for(int p=1 ; p < counttail ; p++)
+    for (int p = 1; p < counttail; p++)
     {
-        if(Snake_X == tailX[p]   &&   Snake_Y == tailY[p])
+        if (Snake_X == tailX[p] && Snake_Y == tailY[p])
         {
             GameOver = 1;
         }
@@ -272,19 +304,18 @@ void Movements()
 
     if (Snake_X == Fruit_X && Snake_Y == Fruit_Y)
     {
-        Score++;  // It Counts the Score of the Player
+        Score++; // It Counts the Score of the Player
 
         counttail++; // It counts the Number of Times , The Friut had been Eaten by Snake....and Incraeses its Tail
-        
+
         fruit();
         fruit();
     }
 }
 
-
 void StartGame()
 {
-    
+
     generate();
     while (GameOver != 1)
     {
@@ -298,48 +329,53 @@ void StartGame()
         {
             for (int y = 0; y < 5000; y++)
             {
-            //     // for ( i = 0; i < 400; i++)
-            //     // {
+                //     // for ( i = 0; i < 400; i++)
+                //     // {
 
-            //     // }
+                //     // }
             }
         }
     }
-
-
 }
-
-
-
-
-
-
 
 int main()
 {
     system("cls");
 
-
-    int var , retry = 0;
-    
+    int var, retry = 0;
 
     printf("\n\n\n\n\t\t\t\t\t");
 
     printf("    Welcome To The Snake Game\n\n\n\n\t\t\t\t\tPress the Key Below Keys To Continue\n\n\n\t\t\t\t\t");
-    
+
     printf(" 1. Start \n\n\n\n\t\t\t\t\t Best Score = 10");
 
     printf("\n\n\t\t\t\t\t Enter Your Choice  :\t");
-    scanf("%d",&var);
+    scanf("%d", &var);
 
-    if(var == 1)
+    if (var == 1)
     {
         StartGame();
     }
 
-    str :
+str:
 
-    if(retry == 1)
+    //..........Coding to Update Best Score..............//
+
+    Check_Score();
+
+    // BestScore = checkScore;
+
+    if (Score > BestScore)
+    {
+        BestScore = Score;
+
+        Update_Score();
+    }
+
+    //..................................................//
+
+    if (retry == 1)
     {
 
         counttail = 0;
@@ -351,23 +387,21 @@ int main()
 
     system("cls");
 
-    printf("\n\n\n\t\t\t\t\tYour Score is %d",Score);
+    printf("\n\n\n\t\t\t\t\tYour Score is %d", Score);
 
-    printf("\n\n\t\t\t\t\tBest Score is %d",BestScore);
+    printf("\n\n\t\t\t\t\tBest Score is %d", BestScore);
 
     printf("\n\n\t\t\t\t\tPress 0 To Play Again  \t");
-    scanf("%d",&var);
+    scanf("%d", &var);
 
-    if(var == 0)
+    if (var == 0)
     {
         GameOver = 0;
-        
+
         retry = 1;
 
         goto str;
     }
-
-   
 
     // for (int i = 0; i < 500; i++)
     // {
@@ -380,15 +414,6 @@ int main()
     //     }
     // }
 
-    //..............................................................
-
-    // if (Snake_X == Fruit_X && Snake_Y == Fruit_Y)
-    // {
-    //     fruit();
-    //     fruit();
-    // }
-
-    //..............................................................
-
+    
     return 0;
 }
