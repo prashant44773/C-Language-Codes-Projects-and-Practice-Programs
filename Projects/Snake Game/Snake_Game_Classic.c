@@ -325,9 +325,9 @@ void StartGame()
         Hit_Wall();
         Movements();
 
-        for (int r = 0; r < 10000; r++)
+        for (int r = 0; r < 100; r++)
         {
-            for (int y = 0; y < 5000; y++)
+            for (int y = 0; y < 500; y++)
             {
                 //     // for ( i = 0; i < 400; i++)
                 //     // {
@@ -348,7 +348,9 @@ int main()
 
     printf("    Welcome To The Snake Game\n\n\n\n\t\t\t\t\tPress the Key Below Keys To Continue\n\n\n\t\t\t\t\t");
 
-    printf(" 1. Start \n\n\n\n\t\t\t\t\t Best Score = 10");
+    Check_Score(); // To Extract the Value of BestScore from the File
+
+    printf(" 1. Start \n\n\n\n\t\t\t\t\t Best Score = %d", BestScore);
 
     printf("\n\n\t\t\t\t\t Enter Your Choice  :\t");
     scanf("%d", &var);
@@ -371,7 +373,7 @@ str:
         BestScore = Score;
 
         Update_Score();
-        
+
         Check_Score();
     }
 
