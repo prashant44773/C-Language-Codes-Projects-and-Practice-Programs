@@ -1,13 +1,13 @@
-Account Number :	210820
-PASSWORD : 	210820
-Name of the Account Holder  : 	tvs tomar
-Address of the Acccont Holder  : 	65 navlaqkho,bunglow,bapunagar,ahmedabad=380024
+Account Number :	a123
+PASSWORD : 	lonewolf
+Name of the Account Holder  : 	pdaldmk jadnk
+Address of the Acccont Holder  : 	jadhakdakdakdnaknaskdnkasdnkasdn.asmdaskdnak,dakdb
 Birth Date :   	Day 	Month	Year 
-				21		  8		2001
+				6		  1		2002
 Phone Number  :	
-9737564087
-Citizen Ship Number  : 	210820
-Account Type  :	Savings
+56561515
+Citizen Ship Number  : 	cit123
+Account Type  :	Current
 
 Available Balance  :	
-						27500.00
+						28904.00
